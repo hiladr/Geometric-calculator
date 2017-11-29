@@ -1,0 +1,148 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.tia29.geometry.Fragment.SpinnerFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+
+
+
+
+<LinearLayout
+    android:layout_width="700dp"
+    android:layout_height="70dp"
+    android:id="@+id/givenSppinners"
+    android:layout_alignParentTop="true">
+
+    <Spinner
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/givenObject1"
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+
+        />
+
+    <Spinner
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/givenOperand"
+
+        android:layout_toRightOf="@+id/givenObject1"
+        android:layout_toEndOf="@+id/givenObject1"
+        />
+
+    <Spinner
+
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/givenObject2"
+        android:layout_alignTop="@+id/givenObject1"
+        android:layout_toRightOf="@+id/givenOperand"
+        android:layout_toEndOf="@+id/givenOperand" />
+
+
+    <Spinner
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/givenObject3"
+
+        android:layout_alignTop="@+id/givenObject2"
+        android:layout_toRightOf="@+id/givenObject2"
+        android:layout_toEndOf="@+id/givenOperand"
+
+
+        />
+    <EditText
+
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+android:textSize="12dp"
+        android:id="@+id/myText"
+        android:inputType="number"
+        android:background="#99a8a8a8"
+        android:text="0"
+
+
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/addGiven"
+        android:id="@+id/addGiven"
+android:padding="8dp"
+android:layout_marginLeft="30dp"
+        android:layout_alignParentTop="true"
+        android:textSize="15dp"
+        android:background="@drawable/button"
+        />
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="700dp"
+        android:layout_height="70dp" android:layout_below="@id/givenSppinners"
+        android:id="@+id/proveSppinners">
+        <Spinner
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/proveObject1"
+
+            android:layout_alignTop="@+id/proveOperand"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <Spinner
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/proveOperand"
+            android:layout_below="@+id/givenObject1"
+            android:layout_toRightOf="@+id/givenObject1"
+            android:layout_toEndOf="@+id/givenObject1" />
+
+        <Spinner
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/proveObject2"
+            android:layout_alignTop="@+id/proveOperand"
+            android:layout_toRightOf="@+id/proveOperand"
+            android:layout_toEndOf="@+id/proveOperand" />
+
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/prove"
+            android:textSize="15dp"
+            android:background="@drawable/button"
+            android:text="@string/prove"
+            android:onClick="prove"
+            android:layout_below="@id/givenSppinners"
+
+            android:layout_toRightOf="@+id/givenSppinners"
+            android:layout_toEndOf="@+id/givenSppinners" />
+
+
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/prove"
+        android:background="@drawable/button"
+        android:id="@+id/startProving"
+        android:textSize="15dp"
+        android:padding="8dp"
+
+        android:layout_toEndOf="@+id/givenSppinners" />
+
+
+</RelativeLayout>

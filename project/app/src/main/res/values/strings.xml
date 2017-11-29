@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MyGeometryApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="triangle">
+        <item>" hofef"</item>
+        <item> shave</item>
+        <item> sve tzlaot</item>
+    </string-array>
+    <string-array name="segment">
+        <item> orech</item>
+        <item> makbil</item>
+    </string-array>
+    <string-array name="angle">
+        <item>ttt </item>
+        <item>ttt </item>
+        <item> matim</item>
+    </string-array>
+    <string name="addGiven">הוסף נתון</string>
+    <string name="prove">הוכח</string>
+    <string name="given">נתון</string>
+
+    <string name="thereFor">\n=>\n</string>
+    <string name="sumOfAnglesInTriangles"> סכום זוויות במשולש שווה 180</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_provr">ProvrActivity</string>
+    <string name="title_activity_start">StartActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+
+
+<string name="tzlaotSvhveTzlaot">כאשר כל הזוויות שוות המשולש שווה צלעות-</string>
+    <string name="chafifa1">משפט חפיפה ראשון צ.צ.צ-</string>
+    <string name="kodkodiyot">זוויות קודקודיות שוות בינהם-</string>
+    <string name="meshulahHazahav">במשולש הזהב הניצב מול זויית בת 30 שווה למחצית מהיתר -</string>
+    <string name="yasharZavit"> "משולש שבו אחת הזויות שווה 90  הוא משולש ישר זוית"-</string>
+    <string name="pitagoras">במשולש ישר זווית ניצב בשניה ועוד ניצב בשניה שווה ליתר בשניה -</string>
+    <string name="shneiGdalim">שתי גדלים השווים לגודל שלישי שוים בינהם-</string>
+    <string name="shveShokayimZaviot">משולש שזוויות הבסיס בו שוות הוא משולש שווה שוקיים-</string>
+    <string name="shveShokayinTzlaot">במשולש שוה שוקיים שתי הצלעות שוות"-</string>
+    <string name="shveTzlaotTlaot">במשולש שווה צלעות כל הצלעות שוות"-</string>
+    <string name="shveTzlaotZaviot">במשולש שווה צלעות כל הזוויות שוות "-</string>
+    <string name="shveTzlaot60">במשולש שווה צלעות כל הזוויות שוות שישים-"</string>
+    <string name="sumOfAngles">סכום זוויות במשולש שווה 180-</string>
+    <string name="chitonit">זווית חיצונית למשולש שווה לשתי הזוויות במשולש שאינן צמודות לה- </string>
+    <string name="tzmudot"> זוויות צמודות משלימות ל180-</string>
+    <string name="tzlaotShavot"> כאשר כל הצלעות שוות המשולש הוא שווה צלעות-</string>
+    <string name="chambachash">חמבח"ש-</string>
+    <string name="tzlaotshveShokayinm">במשולש ששני הצלעות בו שוות הוא משולש שווה שוקיים-</string>
+    <string name="chofef3" >משפט חפיפה שני-צ.ז.צ.</string>
+<string name="chofef2">משפט חפיפה שלישי-ז.צ.ז.</string>
+    <string name="NoProve">לא ניתן להוכיח</string>
+    <string name="mashal">מש"ל</string>
+    <string name="sentence">משפט:</string>
+    <string name="chofef">-במשולשים חופפים כל הזוויות שוות והצלעות שוות</string>
+    <string name="shvelatzmo">גודל שווה לעצמו-</string>
+  <string name="meshulashshveshokoimtzlaotshavot">במשולש שווה שוקיים הצלעות שוות-</string>
+    <string name="AngleIsEqAngle">זווית שווה לזוויות שמוכלות בה-</string>
+<string name="startProving" > התחל להוכיח</string>
+    <string name="shveShokimzaviotShavot">במשולש שווה שוקיים זוויות הבסיס שוות -</string>
+    <string name="shveTzlaotTzlaot">במשולש שבו כל בצלעות שוות הוא משולש שוה צלעות -</string>
+
+    "סכום זויות במשולש שווה ל180";
+
+
+</resources>

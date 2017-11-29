@@ -1,0 +1,17 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.tia29.geometry.Fragment.DataFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ListView
+        android:layout_width="500dp"
+        android:layout_height="500dp"
+        android:id="@+id/givenList"
+
+ />
+</RelativeLayout>
+    <!-- android:layout_toLeftOf="@+id/button"
+         android:layout_toStartOf="@+id/button"-->

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="triangle">
+        <item>" hofef"</item>
+        <item> shave</item>
+        <item> sve tzlaot</item>
+    </string-array>
+    <string-array name="segment">
+        <item> orech</item>
+        <item> makbil</item>
+    </string-array>
+    <string-array name="angle">
+        <item>ttt </item>
+        <item>ttt </item>
+        <item> matim</item>
+    </string-array>
+<!--    <string name="addgiven"> add Given</string>-->
+<!--
+    <string name="given">נתון:</string>
+    <string name="thereFor">\n=>\n</string>
+    <string name="sumOfAnglesInTriangles"> סכום זוויות במשולש שווה 180</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_provr">ProvrActivity</string>
+    <string name="title_activity_start">StartActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+-->
+
+
+
+
+
+
+
+</resources>

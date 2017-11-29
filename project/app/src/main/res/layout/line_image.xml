@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="250dp"
+    android:layout_height="250dp"
+    android:weightSum="1" android:background="@android:color/transparent">
+
+
+-->
+<com.example.tia29.geometry.UI.MyLineView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:alpha="1" android:background="#5789"
+    android:id="@+id/view"
+    />
+
+</RelativeLayout>

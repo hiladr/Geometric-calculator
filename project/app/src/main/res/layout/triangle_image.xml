@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="250dp"
+    android:layout_height="250dp"
+    android:weightSum="1">
+
+
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="com.example.tia29.geometry.UI.MyTriangleView"
+        android:id="@+id/view"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:alpha="1" android:background="#5789"
+        />
+
+</RelativeLayout>

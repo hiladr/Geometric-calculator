@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ flayout"
+    android:weightSum="1">
+
+    <view
+        android:layout_width="820dp"
+        android:layout_height="wrap_content"
+        class="com.example.tia29.geometry.UI.PointView"
+        android:id="@+id/view"
+        android:layout_gravity="center_horizontal" />
+</LinearLayout>

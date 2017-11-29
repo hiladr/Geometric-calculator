@@ -1,0 +1,8 @@
+[{"name":"triangle","subObjects":[{"name":"שווה_צלעות","values":[]},
+{"name":"שווה_שוקיים","values":["segment","segment"]},
+{"name":"חופף","values":["triangle"]},
+{"name":"ישר_זוית","values":["angle"]}]},
+
+{"name":"segment","subObjects":[{"name":"שווה","values":["segment","value"]}]},
+
+{"name":"angle","subObjects":[{"name":"שווה","values":["angle","value"]}]}]

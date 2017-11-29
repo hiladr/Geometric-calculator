@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.example.tia29.geometry.Fragment.ToolBoxFragment"
+    android:background="#01ffffff">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:id="@+id/toplinear"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffadd14f"
+        android:layout_below="@+id/proveObject2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/seg"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/segment" />
+
+        <ImageView
+            android:id="@+id/tri"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tria" />
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/bottomlinear"
+        android:layout_width="fill_parent"
+
+        android:layout_height="300dp"
+        android:layout_below="@+id/toplinear"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center_horizontal|top">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:background="@drawable/tab6" />
+    </RelativeLayout>
+
+</RelativeLayout>
+
+
