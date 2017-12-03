@@ -42,7 +42,7 @@ public class PointView extends View {
         Paint p = new Paint();
         p.setStrokeWidth(2);
         p.setStyle(Paint.Style.STROKE);
-        p.setTextSize(40);
+        p.setTextSize(60);
         canvas.drawText(a+ "", x+ 3, y, p);
     }
 

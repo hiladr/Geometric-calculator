@@ -73,7 +73,7 @@ private static int  index=1;
     public boolean arePointsClose(MyPoint p)
     {
         boolean b=true;
-        if(Math.abs(y - p.getY())>=15 ||Math.abs(x-p.getX())>=15)
+        if(Math.abs(y - p.getY())>=30 ||Math.abs(x-p.getX())>=30)
         {
            b=false;
         }
