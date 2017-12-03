@@ -5,7 +5,7 @@ import com.example.tia29.geometry.R;
 import java.util.ArrayList;
 
 
-public class MainActivity extends Activity  {
+public class MainActivity extends Activity implements IDrawDone {
    
 
 
@@ -26,6 +26,11 @@ public class MainActivity extends Activity  {
     public void start() {
 
     }
+	
+	@Override
+    public void drawDone(MyPoint[] points){
+		
+	}
 
 
 
