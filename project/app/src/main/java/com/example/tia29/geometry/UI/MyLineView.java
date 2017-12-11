@@ -66,17 +66,22 @@ public class MyLineView extends View {
         x1 = (int) p1.getX() - (int) getX();
         y1 = (int) p1.getY() - (int) getY();
 
-        //draw line and letters
         Paint p = new Paint();
         p.setStrokeWidth(2);
         p.setTextSize(40);
         p.setStyle(Paint.Style.STROKE);
-        canvas.drawText(getA() + "", x1 + 5, y1, p);
-        canvas.drawText(getB() + "", x2 + 5, y2, p);
-        if (canvas != null) {
-            canvas.drawLine(x1, y1, x2, y2, p);
+		
+		//draw line and letters
+       if (counter >= 3) {
+            if(!flag) {
+                canvas.drawText(getA() + "", x1 + 5, y1, p);
+                canvas.drawText(getB() + "", x2 + 5, y2, p);
+                if (canvas != null) {
+                    canvas.drawLine(x1, y1, x2, y2, p);
+                }
+            }
 
-            if (flag && counter >= 3) {
+            else  {
                 drawDone.drawDone(p1, p2);
                 enabled = false;
                 setBackgroundColor(Color.TRANSPARENT);
