@@ -19,12 +19,15 @@ public class Exercise {
 
     private MainActivity mainActivity;
 	private ArrayList<Segment> segments;
+	private ArrayList<Angle> angles;
     private ArrayList<MyPoint> points;
     private Context context;
     private int[] letters;//free letters for new elements
 
     public Exercise(Context context) {
         points = new ArrayList<MyPoint>();
+		angles = new ArrayList<Angle>();
+        segments = new ArrayList<Segment>();
         letters = new int[26];
         for (int i = 0; i < 26; i++) {
             letters[i] = 0;
@@ -75,7 +78,10 @@ public class Exercise {
         }
         return null;
     }
-	
+	public ArrayList<Angle> getAngles() {
+        return angles;
+    }
+
 	 public MainActivity getMainActivity() {
         return mainActivity;
     }
@@ -179,6 +185,80 @@ public class Exercise {
         return '*';
     }//finds a free letter for a new element
 	
+	    //create new angles for added segments
+    public void createNewAngles() {
+        ArrayList<Segment> list = getSegments();
+
+        String name = new String();
+        MyPoint p1 = null;
+        MyPoint p2 = null;
+        MyPoint p3 = null;
+// goes over all segments and checks if they create angles
+       for (Segment i : list) {
+            for (Segment j : list) {
+                if (!i.equals(j)) {
+                    if (i.getPoint1().equals(j.getPoint1())) {
+                        p1 = i.getPoint2();
+                        p2 = j.getPoint2();
+                        p3 = i.getPoint1();
+                    } else {
+                        if (i.getPoint2().equals(j.getPoint2())) {
+                            p1 = i.getPoint1();
+                            p2 = j.getPoint1();
+                            p3 = i.getPoint2();
+
+                        } else {
+                            if (i.getPoint2().equals(j.getPoint1())) {
+                                p1 = i.getPoint1();
+                                p2 = j.getPoint2();
+                                p3 = i.getPoint2();
+                            } else {
+                                if (i.getPoint1().equals(j.getPoint2())) {
+                                    p1 = i.getPoint2();
+                                    p2 = j.getPoint1();
+                                    p3 = i.getPoint1();
+                                }
+                            }
+                        }
+                    }
+                    if (p1 != null && p2 != null && p3 != null) {
+
+                        Segment s = new Segment(p1, p2);
+                        if (!isPointsOnTheSegment(s, p3)) {
+                            Angle a = new Angle(p1, p3, p2);
+                    //check that angle doesn't exist
+                           if (!doesAngleExist(a)) {
+                                //         if (shouldAddAnAngle(a))
+                                this.angles.add(a);
+                                p1 = null;
+                                p2 = null;
+                                p3 = null;
+                            }
+                        }
+
+                    }
+
+                }
+
+
+            }
+        }
+    }
+
+    //does angle exist (for adding new angles)
+    public boolean doesAngleExist(Angle a) {
+        return getAngleByName(a.GetName()) != null;
+    }
+
+	    public Angle getAngleByName(String name) {
+        for (Angle i : angles) {
+            String n = i.GetName();
+            if (n.charAt(1) == name.charAt(1) && n.contains(name.charAt(0) + "") && n.contains(name.charAt(2) + "")) {
+                return i;
+            }
+        }
+        return null;
+    }
 		    public Segment GetSegmentByName(String name) {
 
         for (Segment key : segments) {
@@ -190,5 +270,20 @@ public class Exercise {
         }
         return null;
     }//get segment by name
+	
+	    //is the point on this segment
+    public boolean isPointsOnTheSegment(Segment s, MyPoint p) {
+        boolean bool = false;
+        MyPoint p1 = s.getPoint1();
+        MyPoint p2 = s.getPoint2();
+        double a = (p1.getY() - p2.getY()) / (p1.getX() - p2.getX());
+
+        double b = p1.getY() - a * p1.getX();
+        double y = a * p.getX() + b;
+        if (Math.abs(y - p.getY()) <= 20)
+            bool = true;
+
+        return bool;
+    }
 
 }
