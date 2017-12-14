@@ -163,7 +163,18 @@ public class ToolBoxFragment extends Fragment {
         return null;
     }
 	
+//add a point event
+   public void addPoint(char a, float x, float y) {
+        RelativeLayout containsView = (RelativeLayout) mView.findViewById(R.id.bottomlinear);
+        View addedView = View.inflate(mainActivity, R.layout.mypoint_image, null);
+        PointView yView = (PointView) addedView.findViewById(R.id.view);
+        yView.setA(a);
+        yView.setX(x);
+        yView.setY(y);
+        containsView.addView(addedView);
+        yView.invalidate();
 
+    }
 
 
     
