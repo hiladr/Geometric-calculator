@@ -155,13 +155,15 @@ public class ToolBoxFragment extends Fragment {
         double x = point.getX();
         double y = point.getY();
         for (MyPoint p : mExercise.getPoints()) {
-            if (Math.abs(p.getX() - x) <= 5 && Math.abs(p.getY() - y) <= 5 && p.getId() != point.getId()) {
+            if (Math.abs(p.getX() - x) <= 20 && Math.abs(p.getY() - y) <= 20 && p.getId() != point.getId()) {
                 return p;
             }
 
         }
         return null;
     }
+	
+
 
 
     
