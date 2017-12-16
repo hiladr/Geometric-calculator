@@ -322,9 +322,11 @@ public class Exercise {
                         Angle aa2 = getAngleByName(p2.GetName() + "" + p1.GetName() + p3.GetName());
                         Angle aa3 = getAngleByName(p1.GetName() + "" + p3.GetName() + p2.GetName());
                         if (aa1 != null && aa2 != null && aa3 != null && s1 != null && s2 != null && s3 != null) {
+                            if (!isPointsOnTheSegment(s1, p3)) {
                                 Triangle t = new Triangle(p1, p2, p3, aa1, aa2, aa3, s1, s2, s3);
-                                triangles.add(t);
-                                
+                                if (!doesTriangleExist(t)) {
+                                    triangles.add(t);
+                                }
                             }
 
                         }
@@ -333,6 +335,7 @@ public class Exercise {
             }
         }
     }
+	
 	public Segment getLine(MyPoint p1, MyPoint p2) {
 
         for (Segment key : segments) {
@@ -340,8 +343,6 @@ public class Exercise {
                 return key;
         }
         return null;
-    }//does line exist
-
-	
+    }//does line exist 
 
 }
