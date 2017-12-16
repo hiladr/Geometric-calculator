@@ -21,6 +21,7 @@ public class Exercise {
 	private ArrayList<Segment> segments;
 	private ArrayList<Angle> angles;
     private ArrayList<MyPoint> points;
+	private ArrayList<Triangle> triangles;
     private Context context;
     private int[] letters;//free letters for new elements
 
@@ -28,6 +29,7 @@ public class Exercise {
         points = new ArrayList<MyPoint>();
 		angles = new ArrayList<Angle>();
         segments = new ArrayList<Segment>();
+		triangles = new ArrayList<Triangle>();
         letters = new int[26];
         for (int i = 0; i < 26; i++) {
             letters[i] = 0;
@@ -285,5 +287,63 @@ public class Exercise {
 
         return bool;
     }
+	
+	public ArrayList<Triangle> getTriangles() {
+        return triangles;
+    }
+
+    public boolean doesTriangleExist(Triangle t) {
+        for (Triangle triangle : triangles) {
+            if (triangle.GetName().contains(t.GetName().charAt(0) + "")
+                    && triangle.GetName().contains(t.GetName().charAt(1) + "")
+                    && triangle.GetName().contains(t.GetName().charAt(2) + ""))
+                return true;
+        }
+        return false;
+    }
+	
+	//create new triangles when needed after dragging new items
+    public void createNewTriangle() {
+        MyPoint p1, p2, p3;
+        Segment s1, s2, s3;
+//goes over all angles in the exercise and checks if there are 3 angles
+// that create a triangle that does not exist
+       for (Angle a1 : angles) {
+            for (Angle a2 : angles) {
+                for (Angle a3 : angles) {
+                    if (!a1.equals(a2) && !a2.equals(a3) && !a1.equals(a3)) {
+                        p1 = a1.getPoints()[1];
+                        p2 = a2.getPoints()[1];
+                        p3 = a3.getPoints()[1];
+                        s1 = getLine(p1, p2);
+                        s2 = getLine(p2, p3);
+                        s3 = getLine(p1, p3);
+                        Angle aa1 = getAngleByName(p1.GetName() + "" + p2.GetName() + p3.GetName());
+                        Angle aa2 = getAngleByName(p2.GetName() + "" + p1.GetName() + p3.GetName());
+                        Angle aa3 = getAngleByName(p1.GetName() + "" + p3.GetName() + p2.GetName());
+                        if (aa1 != null && aa2 != null && aa3 != null && s1 != null && s2 != null && s3 != null) {
+                            if (!isPointsOnTheSegment(s1, p3)) {
+                                Triangle t = new Triangle(p1, p2, p3, aa1, aa2, aa3, s1, s2, s3);
+                                if (!doesTriangleExist(t)) {
+                                    triangles.add(t);
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+	public Segment getLine(MyPoint p1, MyPoint p2) {
+
+        for (Segment key : segments) {
+            if ((key.getPoint1().equals(p2) && key.getPoint2().equals(p1)) || (key.getPoint1().equals(p1) && key.getPoint2().equals(p2)))
+                return key;
+        }
+        return null;
+    }//does line exist
+
+	
 
 }

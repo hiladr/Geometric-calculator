@@ -124,8 +124,18 @@ public class ToolBoxFragment extends Fragment {
 
     }
 	
-	    private void lineCheckPointsDone() {
-		}
+	        //called when a segment was done drawing
+    private void lineCheckPointsDone() {
+       // Log.d("update tar", "lineCheckPointsDone");
+        MyPoint myPoint[] = mLastAddedLine.getPoints();
+        String segmentName = mExercise.onDragSegment(myPoint[0], myPoint[1]);
+        Segment s = mExercise.GetSegmentByName(segmentName);
+        mExercise.createNewSegmentsBySegment(s);
+        mExercise.createNewAngles();
+        mExercise.createNewTriangle();
+        mainActivity.notifyAdapters();
+        mLastAddedLine.invalidate();
+    }
 		
 		private void triCheckPointsDone() {
 		}

@@ -21,6 +21,9 @@ public class MainActivity extends Activity implements IDrawDone {
         setContentView(R.layout.activity_main);
         start();
     }
+	
+	public void notifyAdapters() {
+    }
 
 
     //new problem-new Exercise
