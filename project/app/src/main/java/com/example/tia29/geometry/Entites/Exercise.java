@@ -291,6 +291,36 @@ public class Exercise {
 	public ArrayList<Triangle> getTriangles() {
         return triangles;
     }
+	
+    public String onDragTriangle(MyPoint p1, MyPoint p2, MyPoint p3) {
+        points.add(p1);
+        points.add(p2);
+        points.add(p3);
+        String name;
+
+
+        // Segment s1 = new Segment(p1, p2, this);
+        //segments.add(s1);
+        name = onDragSegment(p1, p2);
+        Segment s1 = GetSegmentByName(name);
+        //Segment s2 = new Segment(p1, p3, this);
+        //segments.add(s2);
+        name = onDragSegment(p1, p3);
+        Segment s2 = GetSegmentByName(name);
+        //s3 = new Segment(p3, p2, this);
+        //segments.add(s3);
+        name = onDragSegment(p3, p2);
+        Segment s3 = GetSegmentByName(name);
+        Angle a1 = new Angle(p1, p2, p3);
+        angles.add(a1);
+        Angle a2 = new Angle(p2, p1, p3);
+        angles.add(a2);
+        Angle a3 = new Angle(p1, p3, p2);
+        angles.add(a3);
+        Triangle triangle = new Triangle(p1, p2, p3, a1, a2, a3, s1, s2, s3);
+        triangles.add(triangle);
+        return triangle.GetName();
+    }//add a dragged triangle
 
     public boolean doesTriangleExist(Triangle t) {
         for (Triangle triangle : triangles) {
@@ -301,6 +331,16 @@ public class Exercise {
         }
         return false;
     }
+	
+	public Triangle getTriangleByName(String name) {
+        if (name.charAt(0) != name.charAt(1) && name.charAt(1) != name.charAt(2) && name.charAt(0) != name.charAt(2)) {
+            for (Triangle key : triangles) {
+                if (key.GetName().contains(name.charAt(0) + "") && key.GetName().contains(name.charAt(1) + "") && key.GetName().contains(name.charAt(2) + ""))
+                    return key;
+            }
+        }
+        return null;
+    }//get atriangle by name
 	
 	//create new triangles when needed after dragging new items
     public void createNewTriangle() {

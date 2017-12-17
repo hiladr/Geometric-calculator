@@ -137,8 +137,24 @@ public class ToolBoxFragment extends Fragment {
         mLastAddedLine.invalidate();
     }
 		
-		private void triCheckPointsDone() {
-		}
+		//called when a triangle was done drawing
+     private void triCheckPointsDone() {
+        // Log.d("update tar", "triCheckPointsDone");
+        //  mImageTriangle.setEnabled(false);
+        MyPoint myPoint[] = mLastAddedtri.getPoints();
+        String triNAme = mExercise.onDragTriangle(myPoint[0], myPoint[1], myPoint[2]);
+        Triangle t = mExercise.getTriangleByName(triNAme);
+        Segment[] segments = t.getSegments();
+
+        mExercise.createNewSegmentsBySegment(segments[0]);
+        mExercise.createNewSegmentsBySegment(segments[1]);
+        mExercise.createNewSegmentsBySegment(segments[2]);
+        mExercise.createNewAngles();
+        mExercise.createNewTriangle();
+        mainActivity.notifyAdapters();
+        mLastAddedtri.invalidate();
+    }
+
 	
 	 //check if there are points that connect
    public void checkSamePoint(final MyPoint p, final int i, final EEntityTypes etype) {
