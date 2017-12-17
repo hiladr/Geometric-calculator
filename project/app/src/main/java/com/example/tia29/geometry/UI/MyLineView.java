@@ -74,12 +74,14 @@ public class MyLineView extends View {
 		//draw line and letters
        if (counter >= 3) {
             if(!flag) {
+				if (x1 != x2 || y1 != y2) {
                 canvas.drawText(getA() + "", x1 + 5, y1, p);
                 canvas.drawText(getB() + "", x2 + 5, y2, p);
                 if (canvas != null) {
                     canvas.drawLine(x1, y1, x2, y2, p);
                 }
             }
+			}
 
             else  {
                 drawDone.drawDone(p1, p2);

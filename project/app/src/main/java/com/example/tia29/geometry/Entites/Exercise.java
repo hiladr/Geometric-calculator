@@ -68,6 +68,8 @@ public class Exercise {
             return s.GetName();
 
         }
+		freeLetter(p1.GetName().charAt(0));
+        freeLetter(p2.GetName().charAt(0));
         return null;
     }//add a dragged segment
 	

@@ -129,6 +129,8 @@ public class ToolBoxFragment extends Fragment {
        // Log.d("update tar", "lineCheckPointsDone");
         MyPoint myPoint[] = mLastAddedLine.getPoints();
         String segmentName = mExercise.onDragSegment(myPoint[0], myPoint[1]);
+		if(segmentName == null)
+            return;
         Segment s = mExercise.GetSegmentByName(segmentName);
         mExercise.createNewSegmentsBySegment(s);
         mExercise.createNewAngles();
