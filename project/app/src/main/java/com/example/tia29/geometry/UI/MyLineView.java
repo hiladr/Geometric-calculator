@@ -74,7 +74,7 @@ public class MyLineView extends View {
 		//draw line and letters
        if (counter >= 3) {
             if(!flag) {
-				if (x1 != x2 || y1 != y2) {
+                if ((Math.abs(x1 - x2) >= 20) && (Math.abs(y1 - y2) >= 20)) {
                 canvas.drawText(getA() + "", x1 + 5, y1, p);
                 canvas.drawText(getB() + "", x2 + 5, y2, p);
                 if (canvas != null) {

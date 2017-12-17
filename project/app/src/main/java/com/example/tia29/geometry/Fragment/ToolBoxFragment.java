@@ -108,18 +108,41 @@ public class ToolBoxFragment extends Fragment {
     }
 
     //called when done drawing the item
-    public void drawDone(MyPoint[] points) {
+    public void drawDone(MyPoint[] oldPoints) {
+        ArrayList<MyPoint> points = new ArrayList<MyPoint>();
+        for(int i = 0; i < oldPoints.length ; i++) {
+            points.add(oldPoints[i]);
+        }
 
-        if (points.length == 3) {
-            for (int i = 0; i < 3; i++) {
-                checkSamePoint(points[i], i, EEntityTypes.triangle);
+            for(int i = 1; i < points.size() ; i++) {
+            for(int j = 0; j < i ; j++){
+                if(points.get(i).equals(points.get(j))){
+                    mExercise.freeLetter(points.get(i).GetName().charAt(0));
+                    points.remove(i);
+                }
             }
         }
 
-        if (points.length == 2) {
-            for (int i = 0; i < 2; i++) {
-                checkSamePoint(points[i], i, EEntityTypes.segment);
+
+            if(points.size() != oldPoints.length){
+                for (MyPoint point : points) {
+                    checkSamePoint(point, -1, EEntityTypes.angle);
+                }
+                return;
             }
+
+        if (oldPoints.length == 3) {
+            for (int i = 0; i < 3; i++) {
+                checkSamePoint(oldPoints[i], i, EEntityTypes.triangle);
+            }
+        }
+
+        if (oldPoints.length == 2) {
+
+            for (int i = 0; i < 2; i++) {
+                checkSamePoint(oldPoints[i], i, EEntityTypes.segment);
+            }
+
         }
 
     }
@@ -129,8 +152,6 @@ public class ToolBoxFragment extends Fragment {
        // Log.d("update tar", "lineCheckPointsDone");
         MyPoint myPoint[] = mLastAddedLine.getPoints();
         String segmentName = mExercise.onDragSegment(myPoint[0], myPoint[1]);
-		if(segmentName == null)
-            return;
         Segment s = mExercise.GetSegmentByName(segmentName);
         mExercise.createNewSegmentsBySegment(s);
         mExercise.createNewAngles();
@@ -170,6 +191,10 @@ public class ToolBoxFragment extends Fragment {
             mExercise.freeLetter(p.GetName().charAt(0));
 
         }
+		        //for single points that are left from not drawn items
+        else if(i == -1)
+            mExercise.freeLetter(p.GetName().charAt(0));
+		
         Log.d("update tar", "check last point");
         if (etype == EEntityTypes.segment && i == 1) {
             lineCheckPointsDone();

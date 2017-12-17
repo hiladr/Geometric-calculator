@@ -58,8 +58,8 @@ private static int  index=1;
 
         MyPoint myPoint = (MyPoint) o;
 
-        if (Float.compare(myPoint.x, x) != 0) return false;
-        if (Float.compare(myPoint.y, y) != 0) return false;
+        if (Math.abs(myPoint.x - x) >= 20) return false;
+        if (Math.abs(myPoint.y - y) >= 20) return false;
 
         return true;
     }

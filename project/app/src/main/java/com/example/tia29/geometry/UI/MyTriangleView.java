@@ -68,7 +68,10 @@ public class MyTriangleView extends View {
       p.setTextSize(40);
       Path path = new Path();
       p.setStyle(Paint.Style.STROKE);
+
       if (counter == 2) {
+          if((Math.abs(x1 - x2) <= 20) && (Math.abs(y1 - y2) <= 20))
+              return;
           Log.d(TAG, "line");
           canvas.drawText(getA() + "", x1 - 10, y1 - 5, p);
           canvas.drawText(getB() + "", x2 - 10, y2 - 5, p);
@@ -95,15 +98,19 @@ public class MyTriangleView extends View {
           y1 = (int) p1.getY() - (int) getY();
           x3 = (int) p3.getX() - (int) getX();
           y3 = (int) p3.getY() - (int) getY();
-          path.moveTo(x1, y1);
-          path.lineTo(x2, y2);
-          path.lineTo(x3, y3);
-          path.lineTo(x1, y1);
 
-          canvas.drawText(getA() + "", x1 - 10, y1 - 5, p);
-          canvas.drawText(getB() + "", x2 - 10, y2 - 5, p);
-          canvas.drawText(getC() + "", x3 - 10, y3 - 5, p);
-          canvas.drawPath(path, p);
+          if(!((Math.abs(x1 - x2) <= 20) && (Math.abs(y1 - y2) <= 20))&&!((Math.abs(x1 - x3) <= 20) &&(Math.abs(y1 - y3) <= 20))&&!((Math.abs(x2 - x3) <= 20) && (Math.abs(y2 - y3) <= 20))) {
+              path.moveTo(x1, y1);
+              path.lineTo(x2, y2);
+              path.lineTo(x3, y3);
+              path.lineTo(x1, y1);
+
+              canvas.drawText(getA() + "", x1 - 10, y1 - 5, p);
+              canvas.drawText(getB() + "", x2 - 10, y2 - 5, p);
+              canvas.drawText(getC() + "", x3 - 10, y3 - 5, p);
+              canvas.drawPath(path, p);
+			  }
+
           //counter = 0;
 
       }
