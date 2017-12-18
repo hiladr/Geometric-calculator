@@ -288,11 +288,27 @@ public class Exercise {
         return bool;
     }
 	
+	public String getNewSegmentName() {
+        char l1 = findLetter();
+        char l2 = findLetter();
+
+        return l1 + "" + l2 + "";
+    }//get a name for a new segment
+	
 	public ArrayList<Triangle> getTriangles() {
         return triangles;
     }
 	
+	    public String getNewTriangleName() {
+        char l1 = findLetter();
+        char l2 = findLetter();
+        char l3 = findLetter();
+        return l1 + "" + l2 + "" + l3 + "";
+    }//get a new name for a triangle
+	
     public String onDragTriangle(MyPoint p1, MyPoint p2, MyPoint p3) {
+		
+		
         points.add(p1);
         points.add(p2);
         points.add(p3);
