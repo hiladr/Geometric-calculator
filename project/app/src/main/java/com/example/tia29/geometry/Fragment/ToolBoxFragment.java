@@ -216,6 +216,64 @@ public class ToolBoxFragment extends Fragment {
         return null;
     }
 	
+	class MyDragListener implements View.OnDragListener {
+
+        @Override
+        public boolean onDrag(View v, DragEvent event) {
+
+            switch (event.getAction()) {
+                //drag shadow has been released,the drag point is within the bounding box of the View
+                case DragEvent.ACTION_DROP:
+                    // if the mView is the bottomlinear, we accept the drag item
+                    if (v == mView.findViewById(R.id.bottomlinear)) {
+                        RelativeLayout containView = (RelativeLayout) v;
+
+                        //if the dragged item is a triangle
+                        if (draggedItem == R.id.tri) {
+
+                            String triName = mExercise.getNewTriangleName();
+                            View addedView = View.inflate(mainActivity, R.layout.triangle_image, null);
+                            containView.addView(addedView);
+                            mLastAddedtri = (MyTriangleView) addedView.findViewById(R.id.view);
+                            mLastAddedtri.setDrawDone(mainActivity);
+                            mLastAddedtri.setA(triName.charAt(0));
+                            mLastAddedtri.setB(triName.charAt(1));
+                            mLastAddedtri.setC(triName.charAt(2));
+                            mLastAddedtri.invalidate();
+
+
+                        }
+
+                        //if the dragged item is a segment
+                        if (draggedItem == R.id.seg) {
+                            String segName = mExercise.getNewSegmentName();
+                            View addedView = View.inflate(mainActivity, R.layout.line_image, null);
+                            containView.addView(addedView);
+                            mLastAddedLine = (MyLineView) addedView.findViewById(R.id.view);
+                            mLastAddedLine.setA(segName.charAt(0));
+                            mLastAddedLine.setB(segName.charAt(1));
+                            mLastAddedLine.invalidate();
+                            mLastAddedLine.setDrawDone(mainActivity);
+
+
+                        }
+
+                    } else {
+                        View view = (View) event.getLocalState();
+                        view.setVisibility(View.VISIBLE);
+                        Context context = mainActivity.getApplicationContext();
+                        Toast.makeText(context, "You can't drop the image here",
+                                Toast.LENGTH_LONG).show();
+                        break;
+                    }
+                    break;
+
+            }
+            return true;
+        }
+    }
+
+	
 //add a point event
    public void addPoint(char a, float x, float y) {
         RelativeLayout containsView = (RelativeLayout) mView.findViewById(R.id.bottomlinear);
