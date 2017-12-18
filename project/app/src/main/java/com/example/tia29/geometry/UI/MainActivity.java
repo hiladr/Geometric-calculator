@@ -10,7 +10,7 @@ import com.example.tia29.geometry.Fragment.ToolBoxFragment;
 import com.example.tia29.geometry.R;
 
 
-public class MainActivity extends Activity implements IDrawDone {
+public class MainActivity extends Activity implements IDrawDone, IProveDone  {
     Exercise mExercise;
     ToolBoxFragment mToolBoxFragment;
 
