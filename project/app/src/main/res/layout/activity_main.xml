@@ -1,46 +1,41 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:background="#ffffff"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
+
     <FrameLayout
-        android:layout_width="800dp"
-        android:layout_height="150dp"
+        app:layout_widthPercent="70%"
         android:name="com.example.tia29.geometry.Fragment.DataFragment"
         android:id="@+id/datafragment"
         android:layout_below="@+id/spinnerfragment"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-    </FrameLayout>
+        android:layout_alignParentStart="true"
+        app:layout_heightPercent="20%" />
 
     <FrameLayout
-        android:layout_width="800dp"
-        android:layout_height="400dp"
+        app:layout_widthPercent="70%"
         android:name="com.example.tia29.geometry.Fragment.ToolBoxFragment"
         android:id="@+id/toolBoxfragment"
-
+        app:layout_heightPercent="60%"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"></FrameLayout>
+        android:layout_alignParentStart="true" />
 
     <FrameLayout
-        android:layout_width="800dp"
-        android:layout_height="150dp"
+        app:layout_widthPercent="70%"
         android:name="com.example.tia29.geometry.Fragment.SpinnerFragment"
         android:id="@+id/spinnerfragment"
-    android:layout_below="@id/toolBoxfragment"
+        android:layout_below="@id/toolBoxfragment"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="#ffffffff"
-        >
-
-    </FrameLayout>
+        app:layout_heightPercent="20%" />
 
 
     <Button
@@ -68,18 +63,17 @@ android:textSize="20dp"
         android:layout_alignParentEnd="true" />
 
     <FrameLayout
-        android:layout_width="350dp"
-        android:layout_height="329dp"
-
-        android:name="com.example.tia29.geometry.Fragment.ToolBoxFragment"
+        app:layout_widthPercent="30%"
+        android:layout_height="fill_parent"
+        android:name="com.example.tia29.geometry.Fragment.ProveFragment"
         android:id="@+id/prooffragment"
 
         android:layout_gravity="right"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/toolBoxfragment"
-        android:layout_above="@+id/imageView2"></FrameLayout>
-</RelativeLayout>
+        android:layout_above="@+id/imageView2" />
+</android.support.percent.PercentRelativeLayout>
 
 
 
