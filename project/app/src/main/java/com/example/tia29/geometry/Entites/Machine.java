@@ -45,8 +45,14 @@ public class Machine {
 
         for (MyRules myRule : myRules) {
             if (myRule.goOver(exercise, context)) {
-				engine();
-				return;
+                b = true;
+               // Log.d(myRules1.toString(), "true");
+            }
+        }
+
+        if (b) {
+            engine();
+            return;
         }
 
         ArrayList<String> way = exercise.getWayOfGiven1(prove);
@@ -84,6 +90,32 @@ public class Machine {
 
         }
 
+    }
+	
+	//gets classes from package
+    private String[] getClassesOfPackage(String packageName) {
+        ArrayList<String> classes = new ArrayList<String>();
+        try {
+            String packageCodePath = context.getPackageCodePath();
+            DexFile df = new DexFile(packageCodePath);
+            for (Enumeration<String> iter = df.entries(); iter.hasMoreElements(); ) {
+                String className = iter.nextElement();
+                if (className.contains(packageName)) {
+                    classes.add(className.substring(className.lastIndexOf(".") + 1, className.length()));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return toStringArray(classes);
+    }
+//makes an arraylist to an array
+    private String[] toStringArray(ArrayList<String> classes) {
+        String[] array = new String[classes.size()];
+        for (int i = 0; i < classes.size(); i++) {
+            array[i] = classes.get(i);
+        }
+        return array;
     }
 
 
