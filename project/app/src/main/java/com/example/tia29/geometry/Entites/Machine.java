@@ -1,15 +1,18 @@
 package com.example.tia29.geometry.Entites;
 import android.content.Context;
+import android.graphics.Path;
+import android.provider.MediaStore;
 import android.util.Log;
 import com.example.tia29.geometry.R;
 import com.example.tia29.geometry.Rules.MyRules;
 import com.example.tia29.geometry.UI.IProveDone;
+
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Enumeration;
-
 import dalvik.system.DexFile;
 
 /**
@@ -32,46 +35,56 @@ public class Machine {
         reflection();
 
     }
-
-//start running the machine
+    /*
+     * This function start running the machine
+     * return
+     */
     public void runMachine() {
         init();
         engine();
     }
 
-//the main recursive function
+    /*
+ * This function is the main recursive function
+ * it goes over all rules and checks for each rule 
+ * if it can be learned.
+ * return
+ */
     public void engine() {
-        boolean b = false;
-
-        for (MyRules myRule : myRules) {
-            if (myRule.goOver(exercise, context)) {
-                b = true;
-               // Log.d(myRules1.toString(), "true");
-            }
+        boolean learned = false;
+    //learn rules
+       for (MyRules myRule : myRules) {
+            if (myRule.goOver(exercise, context)) 
+                learned = true;
         }
 
-        if (b) {
+        if (learned) {
+            //check again if new rules can be learned
             engine();
             return;
         }
-
+        //if no rule was learned, finished learning
         ArrayList<String> way = exercise.getWayOfGiven1(prove);
         if (way != null) {
             printTheProve(way);
             return;
         }
+        //can't prove
         ArrayList<String> temp = new ArrayList<String>();
         temp.add(context.getString(R.string.NoProve));
         iProofDone.proofDone(temp);
     }
 
-//send the prove back to the main activity
+    //send the prove back to the main activity
     public ArrayList<String> printTheProve(ArrayList<String> way) {
         iProofDone.proofDone(way);
         return way;
     }
-
-//init the machine
+    /*
+ * This function inits the machine.
+ * it creates a given and sets way for every given in exercise.
+ * return
+ */
     public void init() {
         Segment s1;
         Angle a1;
@@ -86,13 +99,56 @@ public class Machine {
             ArrayList<String> ss = new ArrayList<String>();
             ss.add(s);
             given.setWay(ss);
+          /*  // נתון ערך כלשהו
+            if (given.getValue() != -1) {
+                if (given.getItem1().toString().charAt(0) == '|') {
+                    s1 = (Segment) given.getItem1();
+                    s1.setValue(given.getValue());
+
+                } else {
+                    if (given.getItem1().toString().charAt(0) == '<') {
+                        a1 = (Angle) given.getItem1();
+                        a1.setValue(given.getValue());
+                    }
+
+                }}*/
             }
 
         }
 
+    /*
+  * This function takes care of reading the classes from rules package
+  * return
+  */
+    public void reflection() {
+        String pkg = "com.example.tia29.geometry.Rules";
+        //get all rules
+        String[] claases = getClassesOfPackage(pkg);
+        for (int i = 0; i < claases.length; i++) {
+            //create object for each rule
+            try {
+                Class<?> clazz = null;
+                clazz = Class.forName(pkg + "." + claases[i]);
+                Constructor<?> ctor = clazz.getConstructor();
+                Object object = ctor.newInstance(new Object[]{});
+                myRules.add((MyRules) object);
+
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
-	
-	//gets classes from package
+
+//gets classes from package
     private String[] getClassesOfPackage(String packageName) {
         ArrayList<String> classes = new ArrayList<String>();
         try {
@@ -117,7 +173,6 @@ public class Machine {
         }
         return array;
     }
-
 
 }
 
