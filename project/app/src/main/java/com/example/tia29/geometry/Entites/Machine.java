@@ -37,7 +37,7 @@ public class Machine {
     }
     /*
      * This function start running the machine
-     * return
+     * @returns
      */
     public void runMachine() {
         init();
@@ -48,7 +48,7 @@ public class Machine {
  * This function is the main recursive function
  * it goes over all rules and checks for each rule 
  * if it can be learned.
- * return
+ * @returns
  */
     public void engine() {
         boolean learned = false;
@@ -83,7 +83,7 @@ public class Machine {
     /*
  * This function inits the machine.
  * it creates a given and sets way for every given in exercise.
- * return
+ * @returns
  */
     public void init() {
         Segment s1;
@@ -99,26 +99,13 @@ public class Machine {
             ArrayList<String> ss = new ArrayList<String>();
             ss.add(s);
             given.setWay(ss);
-          /*  // נתון ערך כלשהו
-            if (given.getValue() != -1) {
-                if (given.getItem1().toString().charAt(0) == '|') {
-                    s1 = (Segment) given.getItem1();
-                    s1.setValue(given.getValue());
-
-                } else {
-                    if (given.getItem1().toString().charAt(0) == '<') {
-                        a1 = (Angle) given.getItem1();
-                        a1.setValue(given.getValue());
-                    }
-
-                }}*/
             }
 
         }
 
     /*
   * This function takes care of reading the classes from rules package
-  * return
+  * @returns
   */
     public void reflection() {
         String pkg = "com.example.tia29.geometry.Rules";

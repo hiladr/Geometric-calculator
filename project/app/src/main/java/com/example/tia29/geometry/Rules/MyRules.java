@@ -18,7 +18,7 @@ public interface MyRules {
      * e.g. for Pitagoras check if is a triangle
      * @param exercise
      * @param items
-     * return true if the rule was learned
+     * @returns true if the rule was learned
      */
     
     public boolean check(Exercise exercise, Item[] items);
@@ -29,7 +29,7 @@ public interface MyRules {
      * and if not, sets a new given.
      * @param exercise
      * @param items
-     * return true if the rule was learned
+     * @returns true if the rule was learned
      */
 
     public boolean result(Exercise exercise,Item[] items);
@@ -39,7 +39,7 @@ public interface MyRules {
      * related to the rule and sends to be checked
      * @param exercise
      * @param context
-     * return true if the rule was learned
+     * @returns true if the rule was learned
      */
     public boolean goOver(Exercise exercise,Context context);
 }
