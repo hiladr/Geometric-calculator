@@ -45,7 +45,7 @@ public class Segment implements Item {
         return Point2;
     }
 
-
+//???override
     public int getId() {
         return id;
     }
