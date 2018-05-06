@@ -110,12 +110,12 @@ public class Machine {
     public void reflection() {
         String pkg = "com.example.tia29.geometry.Rules";
         //get all rules
-        String[] claases = getClassesOfPackage(pkg);
-        for (int i = 0; i < claases.length; i++) {
+        List<String> claases = RuleList.getRuleList();
+        for (String claas : claases) {
             //create object for each rule
             try {
                 Class<?> clazz = null;
-                clazz = Class.forName(pkg + "." + claases[i]);
+                clazz = Class.forName(pkg + "." + claas);
                 Constructor<?> ctor = clazz.getConstructor();
                 Object object = ctor.newInstance(new Object[]{});
                 myRules.add((MyRules) object);
@@ -135,31 +135,6 @@ public class Machine {
 
     }
 
-//gets classes from package
-    private String[] getClassesOfPackage(String packageName) {
-        ArrayList<String> classes = new ArrayList<String>();
-        try {
-            String packageCodePath = context.getPackageCodePath();
-            DexFile df = new DexFile(packageCodePath);
-            for (Enumeration<String> iter = df.entries(); iter.hasMoreElements(); ) {
-                String className = iter.nextElement();
-                if (className.contains(packageName)) {
-                    classes.add(className.substring(className.lastIndexOf(".") + 1, className.length()));
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return toStringArray(classes);
-    }
-//makes an arraylist to an array
-    private String[] toStringArray(ArrayList<String> classes) {
-        String[] array = new String[classes.size()];
-        for (int i = 0; i < classes.size(); i++) {
-            array[i] = classes.get(i);
-        }
-        return array;
-    }
 
 }
 
