@@ -188,22 +188,35 @@ public class Exercise {
 
         return false;
     }
-	public ArrayList<String> GetElementsNames() {
+       /*
+         * This function returns a list of all elements in exercise,
+         * with a type simbol
+         * e.g. |AB, <ABC, ^ABC
+         * @param 
+         * @returns list of item names
+         */
+    public ArrayList<String> GetElementsNames() {
         ArrayList<String> names = new ArrayList<String>();
+        //add symbol to segments
         for (Segment key : segments) {
             names.add("|" + key.GetName());
         }
+        //add symbol to angles
         for (Angle key : angles) {
             names.add("<" + key.GetName());
         }
-
+        //add symbol to triangles
         for (Triangle key : triangles) {
             names.add("^" + key.GetName());
         }
 
         return names;
     }
-	
+	/*  This function finds a free letter for a new element
+	 * if all letters are in use returns *
+	 * @param
+	 * @returns letter
+	 */
 	    public char findLetter() {
 
         for (int i = 0; i < 26; i++) {
@@ -279,7 +292,7 @@ public class Exercise {
     public boolean doesAngleExist(Angle a) {
         return getAngleByName(a.GetName()) != null;
     }
-	// בודקת האם הנתון הוכח
+	// checks if given was proved
     public ArrayList<String> getWayOfGiven1(Given given) {
         Given given1 = getGivenInExercise(given);
         if (given1 != null)
@@ -707,8 +720,14 @@ public class Exercise {
         return triangle.GetName();
     }//add a dragged triangle
 
+	 /*
+     * This function checks if t exists in the exercise
+     * @param t (Triangle)
+     * @returns true if t exists in exercise
+     */
     public boolean doesTriangleExist(Triangle t) {
         for (Triangle triangle : triangles) {
+		//checks if there is a triangle that its name contains all 3 letters
             if (triangle.GetName().contains(t.GetName().charAt(0) + "")
                     && triangle.GetName().contains(t.GetName().charAt(1) + "")
                     && triangle.GetName().contains(t.GetName().charAt(2) + ""))
