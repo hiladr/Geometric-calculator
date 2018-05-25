@@ -15,6 +15,22 @@ public class RuleList {
         ruleList.add("SetEqualAngles");
         ruleList.add("ShveShokayim");
         ruleList.add("ShniGdalimShavim");
+		ruleList.add("Chofef1");
+		ruleList.add("Chofef2");
+		ruleList.add("Chofef3");
+		ruleList.add("Equals");
+		ruleList.add("kodkodiyot");
+		ruleList.add("MeshulahHazahav");
+		ruleList.add("MeshulashYasharZavit");
+		ruleList.add("partsOfSegments");
+		ruleList.add("ShveShokayim2");
+		ruleList.add("ShveTzlaot");
+		ruleList.add("ShveTzlaot2");
+		ruleList.add("Tzmudot");
+		
+		
+		
+		
 
     }
     public static List<String> getRuleList(){
