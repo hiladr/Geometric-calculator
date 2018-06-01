@@ -1,3 +1,4 @@
+
 package com.example.tia29.geometry.Rules;
 
 import android.content.Context;
@@ -21,6 +22,7 @@ public class Chofef1 implements MyRules {
     private boolean wasChanged = false;
     private ArrayList<String> way=new ArrayList<String>();
     @Override
+	//sent exercise and itemes and check equals kind triangles
     public boolean check(Exercise exercise, Item[] items) {
         if (items.length>0 && items[0] instanceof Triangle && items[1] instanceof Triangle) {
             Triangle t1 = (Triangle) items[0];
@@ -28,7 +30,7 @@ public class Chofef1 implements MyRules {
             Segment ss1[] = t1.getSegments();
             Segment ss2[] = t2.getSegments();
             ArrayList<String> w1, w2, w3;
-
+          //get way of given  including an object equals itself 
             w1 = exercise.getWayOfGivenWithEq(new Given(ss1[0], EAll.שווה, ss2[0]));
             if (w1 != null && w1.size() > 0) {
                 w2 = exercise.getWayOfGivenWithEq(new Given(ss1[1], EAll.שווה, ss2[1]));
@@ -47,6 +49,7 @@ public class Chofef1 implements MyRules {
                     Utils.addAllWay(way, w1);
                     Utils.addAllWay(way, w2);
                     Utils.addAllWay(way, w3);
+					//sent exercise and all items and check the result
                     wasChanged = result(exercise, new Item[]{t1, t2, ss1[0], ss1[1], ss1[2], ss2[0], ss2[2], ss2[1]});
                 }
             }
@@ -151,6 +154,7 @@ public class Chofef1 implements MyRules {
         return wasChanged;
     }
     @Override
+	//sent exercise and new result and check what else may prove
     public boolean goOver(Exercise exercise,Context context) {
         this.context=context;
         this.exercise=exercise;
