@@ -33,11 +33,12 @@ public class chofef2 implements MyRules {
             Segment[] segments2 = t2.getSegments();
             //int index1,index2;
 
-            //מוצא צלע שווה
+            //finde equals segments
             Given g = exercise.GetGivenWithEq(new Given(segments1[0], EAll.שווה, segments2[0]));
             if (g != null) {
                 way = new ArrayList<String>();
                 Utils.addAllWay(way, g.getWay1());
+			// sent to find the '3' char and constarctor angle	
                 if (ifAngleEq(exercise, t1, t2, 0, 0)) {
                     index1 = 0;
                     index2 = 0;
@@ -148,7 +149,7 @@ public class chofef2 implements MyRules {
             way.add(sentence);
 
             Given g = new Given(t1, EAll.חופף, t2);
-
+             //add given to exercise
             Given g1 = exercise.addGeneralGiven1(g, way);
             if (g.equals(g1))
                 b = true;
@@ -196,17 +197,19 @@ public class chofef2 implements MyRules {
             for (int j = i; j < size; j++) {
                 tri2 = triangles.get(j);
                 if (!tri1.equals(tri2))
+				//sent to check agin with exercise and new items	
                     if (check(exercise, new Item[]{tri1, tri2}))
                         b = true;
             }
         }
         return b;
     }
-
+   //finde equals angle
     public boolean ifAngleEq(Exercise exercise, Triangle t1, Triangle t2, int index1, int index2) {
         Segment s1 = t1.getSegments()[index1];
         Segment s2 = t2.getSegments()[index2];
-        //מציאת האוות השלישית
+		
+     //  find the '3' char
 
         if (t1.GetName().charAt(0) != s1.GetName().charAt(0) && t1.GetName().charAt(0) != s1.GetName().charAt(1))
             c1 = t1.GetName().charAt(0);
@@ -221,12 +224,14 @@ public class chofef2 implements MyRules {
             c2 = t2.GetName().charAt(1);
         if (t2.GetName().charAt(2) != s2.GetName().charAt(0) && t2.GetName().charAt(2) != s2.GetName().charAt(1))
             c2 = t2.GetName().charAt(2);
+		// constarctor 2 angle
         Angle a1 = exercise.getAngleByName(c1 + "" + s1.GetName().charAt(0) + "" + s1.GetName().charAt(1) + "");
         Angle a2 = exercise.getAngleByName(c1 + "" + s1.GetName().charAt(1) + "" + s1.GetName().charAt(0) + "");
         Angle a3 = exercise.getAngleByName(c2 + "" + s2.GetName().charAt(0) + "" + s2.GetName().charAt(1) + "");
         Angle a4 = exercise.getAngleByName(c2 + "" + s2.GetName().charAt(1) + "" + s2.GetName().charAt(0) + "");
         Given g1 = exercise.GetGivenWithEq(new Given(a1, EAll.שווה, a3));
         Given g2 = exercise.GetGivenWithEq(new Given(a2, EAll.שווה, a4));
+		//if find equals angle add to way
         if (g1 != null && g2 != null) {
             Utils.addAllWay(way, g1.getWay1());
             Utils.addAllWay(way, g2.getWay1());
