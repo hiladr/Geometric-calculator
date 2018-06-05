@@ -7,8 +7,9 @@ import com.example.tia29.geometry.Enums.EAll;
 import com.example.tia29.geometry.R;
 
 import java.util.ArrayList;
-
-
+/*
+find kodkodiyot angles 
+*/
 public class kodkodiyot implements MyRules {
     Given given;
     Exercise exercise;
@@ -16,6 +17,7 @@ public class kodkodiyot implements MyRules {
     ArrayList<String> way = new ArrayList<String>();
 
     @Override
+	// sent exercise and itemes to check if this kind angle
     public boolean check(Exercise exercise, Item[] items) {
         if (items.length > 1 && items[0] instanceof Angle && items[1] instanceof Angle) {
             Angle a1 = (Angle) items[0];
@@ -28,6 +30,8 @@ public class kodkodiyot implements MyRules {
             MyPoint q3 = a2.getPoints()[2];
 
             Segment s1 = null, s2 = null;
+			
+			//check if angles a1, a2 kodkodiyot
             if (!a1.equals(a2) && p2.equals(q2)) {
                 if (exercise.doesLineExist(p3, q3) && (exercise.doesLineExist(p1, q1))) {
                     s1 = exercise.GetSegmentByName(p3.GetName() + q3.GetName());
@@ -49,6 +53,7 @@ public class kodkodiyot implements MyRules {
     }
 
     @Override
+	//add sentence to way
     public boolean result(Exercise exercise, Item[] items) {
         boolean wasChanghed = false;
         Angle a1 = (Angle) items[0];

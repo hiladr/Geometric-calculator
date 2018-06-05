@@ -14,15 +14,16 @@ import com.example.tia29.geometry.R;
 import com.example.tia29.geometry.Utils;
 
 import java.util.ArrayList;
+/*
 
-
+*/
 public class Chofef1 implements MyRules {
     Exercise exercise;
     Context context;
     private boolean wasChanged = false;
     private ArrayList<String> way=new ArrayList<String>();
     @Override
-	//sent exercise and itemes and check equals kind triangles
+	//sent exercise and itemes to check if this kind triangles
     public boolean check(Exercise exercise, Item[] items) {
         if (items.length>0 && items[0] instanceof Triangle && items[1] instanceof Triangle) {
             Triangle t1 = (Triangle) items[0];
