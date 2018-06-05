@@ -14,7 +14,15 @@ import com.example.tia29.geometry.R;
 import com.example.tia29.geometry.Utils;
 
 import java.util.ArrayList;
-
+/*
+check if given is kind triangle
+after check if triangle is yashar zavit
+if yes-find all angles (what 60 and what 30)
+add this given to way
+after go to result and check what can to prove
+and check if finish to prove 
+if no sent exercise agin whith new result
+*/
 
 public class MeshulahHazahav implements MyRules {
     Exercise exercise;
@@ -22,12 +30,14 @@ public class MeshulahHazahav implements MyRules {
     ArrayList<String> way = new ArrayList<String>();
 
     @Override
+	//sent exercise and itemes to check if this kind triangle
     public boolean check(Exercise exercise, Item[] items) {
         boolean b = false;
         if (items[0] instanceof Triangle) {
             Triangle t1 = (Triangle) items[0];
 
             Angle angles[] = t1.getAngles();
+			//check if triangle is yashar zavit
             Given g = exercise.getGivenInExercise(new Given(t1, EAll.ישר_זוית));
             if (g != null) {
                 Angle a = (Angle) g.getItem2();
@@ -122,7 +132,7 @@ public class MeshulahHazahav implements MyRules {
         }
         return b;
     }
-
+//sent exercise agin whith new result
     @Override
     public boolean goOver(Exercise exercise, Context context) {
         this.context = context;

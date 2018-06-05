@@ -20,7 +20,7 @@ find equals angle
 and after find 2 equals segments neer the angle that we found
 check if maybi have more equals segment or equals angle
 and check if finish to prove 
-if no sent agin whith mew items
+if no sent exercise agin whith new result
 */
 
 public class chofef3 implements MyRules {
@@ -45,7 +45,7 @@ public class chofef3 implements MyRules {
             if (g != null) {
                 way = new ArrayList<String>();
                 Utils.addAllWay(way, g.getWay1());
-		//find 2 equals segments neer the angle that we found		
+		// sent to find 2 equals segments neer the angle that we found		
                 if (ifSegmentEq(exercise, t1, t2, 0, 0)) {
                     a1 = angles1[0];
                     a2 = angles2[0];
@@ -187,7 +187,7 @@ public class chofef3 implements MyRules {
         }
         return b;
     }
-
+//sent exercise agin whith new result
     @Override
     public boolean goOver(Exercise exercise, Context context) {
         boolean b = false;
@@ -206,7 +206,7 @@ public class chofef3 implements MyRules {
         }
         return b;
     }
-
+//find 2 equals segments neer the angle that we found
     public boolean ifSegmentEq(Exercise exercise, Triangle t1, Triangle t2, int index1, int index2) {
         Angle a1 = t1.getAngles()[index1];
         Angle a2 = t2.getAngles()[index2];
