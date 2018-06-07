@@ -26,11 +26,11 @@ public class RuleList {
 		ruleList.add("ShveShokayim2");
 		ruleList.add("ShveTzlaot");
 		ruleList.add("ShveTzlaot2");
+		ruleList.add("Pitagoras");
 		ruleList.add("Tzmudot");
-		
-		
-		
-		
+		ruleList.add("SumOfAngles");
+		ruleList.add("SetValue");
+		ruleList.add("ZavitChitonit");
 		
 		
 
