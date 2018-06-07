@@ -1,4 +1,5 @@
-package com.example.tia29.geometry.Rules;
+
+ package com.example.tia29.geometry.Rules;
 
 import android.content.Context;
 
@@ -12,6 +13,11 @@ import com.example.tia29.geometry.R;
 import com.example.tia29.geometry.Utils;
 
 import java.util.ArrayList;
+/*
+check if triangle yashr zavit and get this sentence
+and check if finish to prove 
+sent exercise and new result and check what else may prove.
+*/
 
 
 public class MeshulashYasharZavit implements  MyRules {
@@ -21,6 +27,8 @@ public class MeshulashYasharZavit implements  MyRules {
     @Override
     public boolean check(Exercise exercise, Item[] items) {
         boolean changed=false;
+		//check itemes if this kind triangles
+		
         if (items[0] instanceof Triangle) {
 
             Triangle triangle = (Triangle) items[0];
@@ -32,6 +40,7 @@ public class MeshulashYasharZavit implements  MyRules {
               return   exercise.setGivenValueOfAngle1(a,90,giv.getWay1() );
 
             }
+			//check which angle is 90
                 if (angles[0].getValue() == 90) {
                 Utils.addAllWay(way , exercise.getWayOfGiven1(new Given(triangle.getAngles()[0], EAll.שווה, 90)));
                  if(way!=null&& way.size()>0)
@@ -62,6 +71,7 @@ boolean b=false;
        Triangle t= (Triangle) items[0];
         Angle a= (Angle) items[1];
         Given g=new Given(t, EAll.ישר_זוית, a);
+	//	add sentence about "yashr zavit "
            way.add(context.getString(R.string.yasharZavit));
           Given temp=   exercise.addGeneralGiven1(g , way);
         if(temp.equals(g))
@@ -70,7 +80,7 @@ boolean b=false;
         }
         return b;
     }
-
+	//sent exercise and new result and check what else may prove
     @Override
     public boolean goOver(Exercise exercise, Context context) {
         this.context=context;

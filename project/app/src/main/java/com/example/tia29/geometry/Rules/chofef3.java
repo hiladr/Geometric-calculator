@@ -20,7 +20,7 @@ find equals angle
 and after find 2 equals segments neer the angle that we found
 check if maybi have more equals segment or equals angle
 and check if finish to prove 
-if no sent exercise agin whith new result
+
 */
 
 public class chofef3 implements MyRules {
@@ -31,6 +31,7 @@ public class chofef3 implements MyRules {
     @Override
     public boolean check(Exercise exercise, Item[] items) {
         boolean b = false;
+		//check itemes if this kind triangles
         if (items.length > 1 && items[0] instanceof Triangle && items[1] instanceof Triangle) {
 
             Triangle t1, t2;

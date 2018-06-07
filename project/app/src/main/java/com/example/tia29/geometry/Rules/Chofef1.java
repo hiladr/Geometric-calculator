@@ -23,7 +23,7 @@ public class Chofef1 implements MyRules {
     private boolean wasChanged = false;
     private ArrayList<String> way=new ArrayList<String>();
     @Override
-	//sent exercise and itemes to check if this kind triangles
+	//check itemes if this kind triangles
     public boolean check(Exercise exercise, Item[] items) {
         if (items.length>0 && items[0] instanceof Triangle && items[1] instanceof Triangle) {
             Triangle t1 = (Triangle) items[0];
