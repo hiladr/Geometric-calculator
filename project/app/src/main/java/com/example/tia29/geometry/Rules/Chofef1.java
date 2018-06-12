@@ -1,4 +1,6 @@
 
+
+
 package com.example.tia29.geometry.Rules;
 
 import android.content.Context;
@@ -15,7 +17,11 @@ import com.example.tia29.geometry.Utils;
 
 import java.util.ArrayList;
 /*
-
+get exercise and sent to check whith exercise and triangles
+check triangles if they equals by checking segmentd
+sent exercise and all items and check the result
+add sentence "chafifa1"
+check if finsh to prove
 */
 public class Chofef1 implements MyRules {
     Exercise exercise;
@@ -155,7 +161,7 @@ public class Chofef1 implements MyRules {
         return wasChanged;
     }
     @Override
-	//sent exercise and new result and check what else may prove
+	//get exercise and sent to check whith exercise and triangles
     public boolean goOver(Exercise exercise,Context context) {
         this.context=context;
         this.exercise=exercise;

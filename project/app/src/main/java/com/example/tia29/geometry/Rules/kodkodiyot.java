@@ -17,7 +17,7 @@ public class kodkodiyot implements MyRules {
     ArrayList<String> way = new ArrayList<String>();
 
     @Override
-	// sent exercise and itemes to check if this kind angle
+	// get exercise and itemes and check if itemes kind angle
     public boolean check(Exercise exercise, Item[] items) {
         if (items.length > 1 && items[0] instanceof Angle && items[1] instanceof Angle) {
             Angle a1 = (Angle) items[0];
@@ -65,6 +65,7 @@ public class kodkodiyot implements MyRules {
     }
 
     @Override
+	//get exercise and sent to check whith exercise and angles
     public boolean goOver(Exercise exercise, Context context) {
         this.context = context;
         boolean b = false;

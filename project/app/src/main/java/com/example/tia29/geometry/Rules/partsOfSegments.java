@@ -11,6 +11,9 @@ import com.example.tia29.geometry.Enums.EAll;
 import com.example.tia29.geometry.Utils;
 
 import java.util.ArrayList;
+/*
+
+*/
 
 
 public class partsOfSegments implements MyRules {
@@ -28,6 +31,7 @@ int sum=0;
         Segment segment = null;
         boolean b = false;
         boolean full = true;
+		//check itemes if this kind segment
         if (items.length > 0 && items[0] instanceof Segment) {
             segment = (Segment) items[0];
             val = 0;

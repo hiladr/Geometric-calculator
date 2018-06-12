@@ -23,7 +23,7 @@ public class Equals implements MyRules {
     Context context;
     @Override
 	
-	//sent exercise and itemes to check if this kind segment
+	//get exercise and itemes  and check if itemes kind segment
 	
     public boolean check(Exercise exercise, Item[] items) {
         if (items[0] instanceof Segment && items[1] instanceof Segment) {
@@ -84,7 +84,7 @@ if(items[0] instanceof  Segment ) {
     }
 
     @Override
-	
+	//get exercise and sent to check whith exercise and angles/segments
     public boolean goOver(Exercise exercise, Context context) {
 
         this.context=context;

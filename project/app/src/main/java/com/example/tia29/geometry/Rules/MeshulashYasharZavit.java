@@ -14,9 +14,11 @@ import com.example.tia29.geometry.Utils;
 
 import java.util.ArrayList;
 /*
-check if triangle yashr zavit and get this sentence
+get exercise and sent to check whith exercise and triangle
+check if triangle yashr zavit
+ and add sentence "yasharZavit"
 and check if finish to prove 
-sent exercise and new result and check what else may prove.
+
 */
 
 
@@ -80,7 +82,7 @@ boolean b=false;
         }
         return b;
     }
-	//sent exercise and new result and check what else may prove
+	//get exercise and sent to check whith exercise and triangle
     @Override
     public boolean goOver(Exercise exercise, Context context) {
         this.context=context;

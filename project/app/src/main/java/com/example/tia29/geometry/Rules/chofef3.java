@@ -188,7 +188,7 @@ public class chofef3 implements MyRules {
         }
         return b;
     }
-//sent exercise agin whith new result
+//get exercise and sent to check whith exercise and triangles
     @Override
     public boolean goOver(Exercise exercise, Context context) {
         boolean b = false;

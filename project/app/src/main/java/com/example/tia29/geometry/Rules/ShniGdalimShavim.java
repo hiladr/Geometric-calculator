@@ -14,6 +14,13 @@ import com.example.tia29.geometry.Utils;
 
 import java.util.ArrayList;
 
+/*
+get exercise and sent to check whith exercise and angles/segmens
+check which equals segmens/angles
+and add sentence ""shneiGdalim" to way and check if finish to prove
+*/
+
+
 
 public class ShniGdalimShavim implements MyRules{
 ArrayList<String> way=new ArrayList<String>();
@@ -22,6 +29,8 @@ ArrayList<String> way=new ArrayList<String>();
 
 
     @Override
+	//check which equals segmens/angles
+
     public boolean check(Exercise exercise, Item[] items) {
         String sentence=context.getString(R.string.shneiGdalim);
         boolean flag=false;
@@ -108,6 +117,8 @@ ArrayList<String> way=new ArrayList<String>();
     }
 
     @Override
+//add sentence ""shneiGdalim" to way and check if finish to prove
+
     public boolean result(Exercise exercise, Item[] items) {
         if(items[0] instanceof Segment)
         {
@@ -128,12 +139,13 @@ ArrayList<String> way=new ArrayList<String>();
 
     @Override
     public boolean goOver(Exercise exercise, Context context) {
+//get exercise and sent to check whith exercise and angles/segmens
 
         this.context=context;
         boolean flag=false;
         ArrayList< Segment> listSegment=exercise.getSegments();
         int size=listSegment.size();
-        //לעבור על הקטעים
+        //pass on the all segmens
         for(int i=0;i< size;i++)
         {
             if(i+1<size)
@@ -154,7 +166,7 @@ ArrayList<String> way=new ArrayList<String>();
         }
         ArrayList< Angle> listAngles=exercise.getAngles();
         int sizeA=listAngles.size();
-   //לעבור על כל הזויות
+   //pass on the all angles
         for(int i=0;i< sizeA;i++)
         {
             if(i+1<size)

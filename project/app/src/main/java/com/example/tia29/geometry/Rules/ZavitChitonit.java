@@ -20,9 +20,9 @@ check which another point is part from triangle
 check the ""three point" that is not part from angle
 check that its reali "angle chitonit" and not "angle zmuda"
 about checking that points reali on same segment.
-get segment  about "zavit chitonit" and have all option that can to prove from this sentence
+add sentence about "zavit chitonit" and have all option that can to prove from this sentence
 and check if finish to prove 
-ent exercise and new result and check what else may prove.
+
 */
 
 public class ZavitChitonit implements MyRules {
@@ -170,7 +170,7 @@ boolean bool=false;
 
 return false;
     }
-	//sent exercise and new result and check what else may prove 
+	//get exercise and sent to check whith exercise and triangle and angle
 	
     @Override
     public boolean goOver(Exercise exercise, Context context) {

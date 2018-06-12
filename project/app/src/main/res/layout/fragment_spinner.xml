@@ -138,7 +138,7 @@ android:layout_marginLeft="30dp"
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/prove"
+        android:text="הכנס צ.ל."
         android:background="@drawable/button"
         android:id="@+id/startProving"
         android:textSize="15dp"

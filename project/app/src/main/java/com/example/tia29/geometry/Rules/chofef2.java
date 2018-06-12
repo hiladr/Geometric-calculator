@@ -14,6 +14,12 @@ import com.example.tia29.geometry.Utils;
 
 import java.util.ArrayList;
 
+/*
+get exercise and sent to check whith exercise and triangles
+finde equals segments after find the '3' char and constarctor 2 angle	
+if find equals angle add to way
+add sentence chafifa2 to way and check if finish to prove 
+*/
 
 public class chofef2 implements MyRules {
     ArrayList<String> way = new ArrayList<String>();
@@ -184,7 +190,7 @@ public class chofef2 implements MyRules {
         }
         return b;
     }
-
+//get exercise and sent to check whith exercise and triangles
     @Override
     public boolean goOver(Exercise exercise, Context context) {
         boolean b = false;
@@ -197,14 +203,15 @@ public class chofef2 implements MyRules {
             for (int j = i; j < size; j++) {
                 tri2 = triangles.get(j);
                 if (!tri1.equals(tri2))
-				//sent to check agin with exercise and new items	
+			
                     if (check(exercise, new Item[]{tri1, tri2}))
                         b = true;
             }
         }
         return b;
     }
-   //finde equals angle
+   //finde equale angle
+   
     public boolean ifAngleEq(Exercise exercise, Triangle t1, Triangle t2, int index1, int index2) {
         Segment s1 = t1.getSegments()[index1];
         Segment s2 = t2.getSegments()[index2];
